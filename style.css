@@ -1,0 +1,539 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.page.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Страница 1: Valentine Screen */
+#page1 {
+    background: linear-gradient(135deg, #e1bee7 0%, #f8bbd0 50%, #ffe0f0 100%);
+}
+
+.main-text {
+    font-size: 3rem;
+    color: #8b4a6b;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.buttons-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-yes:hover {
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+    color: white;
+    transform-origin: center;
+    transition: transform 0.25s ease-out;
+    position: relative;
+    z-index: 5;
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #f44336 0%, #ef5350 100%);
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+/* Персонаж - котик */
+.character {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.cat {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.cat-head {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cat-ear {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid #ff99cc;
+    position: absolute;
+    top: -10px;
+}
+
+.cat-ear-left {
+    left: 15px;
+    transform: rotate(-20deg);
+}
+
+.cat-ear-right {
+    right: 15px;
+    transform: rotate(20deg);
+}
+
+.cat-face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cat-eye {
+    width: 12px;
+    height: 12px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    animation: blink 3s infinite;
+}
+
+.cat-eye-left {
+    left: -20px;
+}
+
+.cat-eye-right {
+    right: -20px;
+}
+
+@keyframes blink {
+    0%, 90%, 100% {
+        height: 12px;
+    }
+    95% {
+        height: 2px;
+    }
+}
+
+.cat-nose {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid #ff6699;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cat-mouth {
+    width: 20px;
+    height: 10px;
+    border: 2px solid #ff6699;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cat-body {
+    width: 80px;
+    height: 60px;
+    background: linear-gradient(135deg, #ffb3d9 0%, #ff99cc 100%);
+    border-radius: 40px;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Страница 2: Открытка */
+#page2 {
+    background: linear-gradient(135deg, #e1bee7 0%, #f8bbd0 50%, #ffe0f0 100%);
+}
+
+.hearts-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+}
+
+.heart1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.heart2 {
+    top: 20%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.heart3 {
+    top: 50%;
+    left: 5%;
+    animation-delay: 2s;
+}
+
+.heart4 {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 3s;
+}
+
+.heart5 {
+    top: 70%;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.heart6 {
+    top: 30%;
+    right: 20%;
+    animation-delay: 1.5s;
+}
+
+.heart7 {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 2.5s;
+}
+
+.heart8 {
+    top: 60%;
+    right: 30%;
+    animation-delay: 3.5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.card-container {
+    z-index: 1;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+}
+
+.envelope-wrapper {
+    margin-bottom: 0;
+    perspective: 1000px;
+    position: relative;
+    overflow: visible;
+    min-height: 400px;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    transform-style: preserve-3d;
+    overflow: visible;
+}
+
+/* Основной корпус конверта - прямоугольник, средний кораллово-красный */
+.envelope-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff7a7a 0%, #ff6b6b 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    z-index: 1;
+    transform: translateZ(0);
+}
+
+/* Нижний треугольный клапан (статика) - V-образная форма, яркий как боковые */
+.envelope-flap-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5c5c 100%);
+    clip-path: polygon(0 100%, 50% 50%, 100% 100%);
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Левый боковой треугольник - темнее основного */
+.envelope-flap-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5c5c 100%);
+    clip-path: polygon(0 0, 50% 50%, 0 100%);
+    z-index: 3;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Правый боковой треугольник - темнее основного */
+.envelope-flap-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff5c5c 100%);
+    clip-path: polygon(100% 0, 50% 50%, 100% 100%);
+    z-index: 3;
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Верхний клапан (анимируемый треугольник) - самый темный */
+.envelope-flap-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(135deg, #ff4444 0%, #ff3333 100%);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top center;
+    transform: rotateX(0deg);
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 4;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Клапан в открытом состоянии - цвет остается таким же */
+.envelope-flap-top.open {
+    transform: rotateX(180deg);
+}
+
+/* Письмо - белое, изначально скрыто за клапанами */
+.letter {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    height: auto;
+    min-height: 120px;
+    max-width: calc(100% - 60px);
+    background: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    transform: translateY(0) translateZ(10px);
+    transition: transform 0.8s ease, opacity 0.8s ease;
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+
+/* Письмо выезжает поверх конверта при открытии */
+.letter.open {
+    transform: translateY(-60px) translateZ(20px);
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.letter-content {
+    text-align: center;
+}
+
+.letter-content h2 {
+    color: #8b4a6b;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.letter-content p {
+    color: #666;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.letter-content .signature {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ff6699;
+    font-size: 1.2rem;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    position: relative;
+}
+
+.btn-open {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+    color: white;
+}
+
+.btn-close {
+    background: linear-gradient(135deg, #f44336 0%, #ef5350 100%);
+    color: white;
+}
+
+/* Анимация вылетающих сердечек */
+@keyframes heartFly {
+    0% {
+        transform: translateY(0) scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.heart-fly {
+    position: absolute;
+    font-size: 2rem;
+    pointer-events: none;
+    animation: heartFly 2s ease-out forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main-text {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+    }
+    
+    .envelope {
+        width: 250px;
+        height: 170px;
+    }
+    
+    .letter.open {
+        transform: translateY(-50px) translateZ(20px);
+    }
+    
+    .envelope-flap-left {
+        border-right: 40px solid transparent;
+        border-bottom: 50px solid #ff99cc;
+    }
+    
+    .envelope-flap-right {
+        border-left: 40px solid transparent;
+        border-bottom: 50px solid #ff99cc;
+    }
+}
+
